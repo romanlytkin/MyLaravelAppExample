@@ -85,9 +85,22 @@ class CardsController extends Controller
 
     public function editcard(Request $request)
     {
+        $id = $_GET['id'];
         $status = $request->input('status');
         $sum = $request->input('sum');
-        echo $status." ".$sum;
+        $card = Cards::where('id', '=', $id)->first();
+        if ($status == 0) {
+          $card->status = 'не активирована';
+        }
+        elseif ($status == 1) {
+          $card->status = 'активирована';
+        }
+        elseif ($status == 2) {
+          $card->status = 'просрочена';
+        }
+        $card->sum = $sum;
+        $card->save();
+        return redirect('/card/'.$id.'/edit');
     }
 
     public function addprise(Request $request)

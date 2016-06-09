@@ -80,25 +80,4 @@ $( document ).ready(function() {
 	    }
 	  });
 	});
-
-	$(document.body).on('click', '.editcard', function() {
-		$.ajax({
-	    type: 'POST',
-	    url: '/editcard',
-	    dataType: 'json',
-	    data:
-			{
-				'sum':$('input[name=sum]').val(),
-				'status':$('select[name=status]').val(),
-			 	'_token': $('input[name=_token]').val()
-		 	},
-	    success: function(data) {
-				$.growlUI('Успех', 'Статус изменен!');
-	    },
-	    error: function(xhr, errmsg, err) {
-				$.growlUI('Ошибка', errmsg);
-	    }
-	  });
-	});
-
 });

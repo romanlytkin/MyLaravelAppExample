@@ -10,16 +10,19 @@
         </div>
         <div class="panel-footer">
           <fieldset class="form-group">
-            <div><strong>Серия: </>{{ $card->series }}</div>
-            <div><strong>Номер: </>{{ $card->card_number }}</div>
-            <div><strong>Дата окончания активности: </>{{ $card->end_date }}</div>
-            {!! Form::label(null, 'Сумма на счете') !!}
-            {!! Form::text(null, null, ['class' => 'form-control', 'name' => 'sum']) !!}
-            {!! Form::label(null, 'Статус') !!}
-            {!! Form::select('status', ['не активирована', 'активирована', 'просрочена'], $value) !!}
-            <div class="form-group">
-              <button class="btn btn-success pull-right editcard" role="button">Изменить статус</button>
-            </div>
+            {!! Form::open(array('url'=>'editcard/?id='.$card->id,'method'=>'POST', 'id'=>'editcard')) !!}
+              {!! Form::hidden('invisible', $card->id) !!}
+              <div><strong>Серия: </>{{ $card->series }}</div>
+              <div><strong>Номер: </>{{ $card->card_number }}</div>
+              <div><strong>Дата окончания активности: </>{{ $card->end_date }}</div>
+              {!! Form::label(null, 'Сумма на счете') !!}
+              {!! Form::text(null, $card->sum, ['class' => 'form-control', 'name' => 'sum']) !!}
+              {!! Form::label(null, 'Статус') !!}
+              {!! Form::select('status', ['не активирована', 'активирована', 'просрочена'], $value) !!}
+              <div class="form-group">
+                <button class="btn btn-success pull-right editcard" role="button">Изменить статус</button>
+              </div>
+            {!! Form::close() !!}
           </fieldset>
         </div>
       </div>
@@ -32,7 +35,7 @@
         </div>
         <div class="panel-footer">
           <fieldset class="form-group">
-            {!! Form::open(array('url'=>'addprise/?id='.$card->id,'method'=>'POST', 'id'=>'myform')) !!}
+            {!! Form::open(array('url'=>'addprise/?id='.$card->id,'method'=>'POST', 'id'=>'addprise')) !!}
               <div class="form-group">
                 {!! Form::label(null, 'Дата отлаты') !!}
                 <div class='input-group date' id='datetimepicker'>

@@ -3,7 +3,7 @@
 @section('title', 'Card history')
 
 @section('content')
-    <div class="panel panel-default col-lg-6">
+    <div class="panel panel-default col-lg-6 col-lg-offset-3">
       <div class="panel-body">
       <h2>Карта</h2>
       </div>
