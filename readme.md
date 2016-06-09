@@ -1,3 +1,17 @@
+## MyLaravelAppExample
+-----------------------
+
+1. Стянуть репозиторий или скачать архив и распаковать
+2. Перейти в корень проекта
+3. Выполнить настройки для подключения к базе `config/database.php`
+4. Выполнить в консоли:
+  ```
+  php artisan migrate
+  php artisan serve
+  ```
+5. Перейти в браузере `http://localhost:8000/`
+
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
